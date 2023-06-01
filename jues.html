@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>角色</title>
+        <!-- import CSS -->
+        <link rel="stylesheet" href="element-ui/lib/theme-chalk/index.css">
+        <link rel="stylesheet" href="css/jues.css">
+    </head>
+<!-- 新页面过渡 -->
+    <div id="myBackground"><div id="myBackground_1"><p>角色界面</p> </div> </div>
+    <div id="div_juesBigBox" >
+    
+<!--        <button @click="testOpen1">上一页</button>废案-->
+<!--        <button @click="testOpen2">下一页</button>-->
+<!--        <img :src="Items" width="500px" height="100px"/>-->
+        <el-carousel :loop="true" :autoplay="false" type="card"  height="600px" @change="testOpen1">
+            <el-carousel-item  v-for="item in ItemImgs" :key="item" >
+              
+                <img :src="item" id="Myimgs" >
+               
+            </el-carousel-item>
+        </el-carousel>
+        <div id="div_juesMessage">
+        <p id="PeopleNames">{{ItemImgsMessage[index].PeopleName}}&nbsp&nbsp<span id="SpanShow">{{ItemImgsMessage[index].PeopleTitle}}</span></p>
+        <p id="PeopleMessage">{{ItemImgsMessage[index].PeopleMessage}}</p>
+        </div>
+    </div>
+    <body>
+    </body>
+    <!-- import Vue before Element -->
+    <script src="js/vue.js"></script>
+    <script src="js/axios-0.18.0.js"></script>
+    <!-- import JavaScript -->
+    <script src="element-ui/lib/index.js"></script>
+    <script>
+   
+    
+        
+        new Vue({
+            el: '#div_juesBigBox',
+            
+            data() {
+                return {
+                    Items:"img/Bigbc3.jpg",
+                    index:0,
+                    show: false,
+                    ItemImgs:["img/imgs/p1.png","img/imgs/p2.png","img/imgs/p3.png"],
+                    ItemImgsMessage:[{PeopleName:'蕾米莉亚·斯卡蕾特',PeopleMessage:'她是居住在红魔馆的吸血鬼，并且她还是那里的主人。\n' +
+                                '\n' +
+                                '她拥有操纵命运的能力，以及吸血鬼一族强大的身体能力。\n' +
+                                '\n' +
+                                '她像小孩子一样幼稚任性，并且拥有旺盛的好奇心。同时也十分的高傲、傲慢，自认为没有比她更厉害的存在。',PeopleTitle:'妖怪'},
+                        {PeopleName:'博丽灵梦',PeopleMessage:'灵梦解决异变时，会遭遇到各式各样的妖怪和人类，有的时候会发生战斗，有的时候则会互相协助。\n' +
+                                    '例如在东方永夜抄和东方凭依华里她与八云紫组合；在东方地灵殿里，八云紫、射命丸文、伊吹萃香都为其提供过协助；在东方凭依华里也与茨木华扇结成组合。\n' +
+                                    '因此灵梦结下了许多不解之缘。虽然人类村落的居民们对博丽神社兴致寥寥，但是妖怪们都非常喜欢灵梦，经常会来神社找灵梦玩耍。但灵梦并不希望妖怪们在平时来到神社，认为是她们让人里居民不敢来神社参拜，并让神社被称为“妖怪神社”。',PeopleTitle:'人类'},
+                        {PeopleName:'帕秋莉·诺蕾姬',PeopleMessage:'她是居住在红魔馆地下大图书馆中的魔女（魔法使），非常擅长魔法。\n' +
+                                    '但她身体虚弱，患有哮喘病和贫血。\n' +
+                                    '虽然根据ZUN的说法，她所擅长的是精灵魔法系，而非药物的精炼[东方书谱]，她的名字Patchouli的意思却是“广藿香”，一种常用草药、芳香植物及魔药素材。\n' +
+                                    '帕秋莉精明而有求知欲[萃梦想角色设定]，被称为红魔馆的头脑，正如她的姓氏Knowledge（知识）的含义一样。\n' +
+                                    '帕秋莉居住在红魔馆大图书馆中，深居简出。\n' +
+                                    '她的绝大部分时间用于读书，和开发新的魔法。\n' +
+                                    '同时，她也会撰写魔导书，用以记录创造的魔法。',PeopleTitle:'魔法使'}]
+                };
+            },
+            mounted(){
+              this.test1();
+            },
+            methods:{
+                test1(){
+                    //它对任何事件都有效，而不仅仅是 HTML 或 SVG 元素。
+                    // load 事件在整个页面及所有依赖资源如样式表和图片都已完成加载时触发。
+                    // 它与 DOMContentLoaded 不同，后者只要页面 DOM 加载完成就触发，无需等待依赖资源的加载。
+                    window.addEventListener('load',()=> {
+                        //改背景
+                        // element.style.backgroundImage= "url('./img/Bigbc2.jpg')"
+                        var background = document.getElementById('myBackground');
+                        background.style.opacity = 0;
+                   
+                        
+                        //更改透明度
+                        var element = document.getElementById('div_juesBigBox');
+                        element.style.opacity = 1; /* 当页面加载完成后，将元素的透明度设置为1 */
+          
+                    });
+                },
+                testOpen1(now, prev){
+                    // this.Items="img/Bigbc2.jpg";
+                    // this.index=this.index+1;
+                   this.index=now;
+                  
+                    var SpanClick = document.getElementById('SpanShow');
+                    SpanClick.style.opacity =1;
+                    // window.addEventListener('click',()=>{
+                    //     alert(1111)
+                    // })
+
+                },
+                // testOpen2(){
+                //     this.index=this.index-1;
+                //     alert(this.index)
+                //
+                // }
+            }
+            
+            
+        })
+    </script>
+</html>

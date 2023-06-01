@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<!--suppress XmlDuplicatedId -->
+<html lang="en" xmlns:height="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="css/index2.css">
+    <link rel="stylesheet" href="element-ui/lib/theme-chalk/index.css">
+    <body>
+        <div id="app">
+            <!--    <div id="div_top">-->
+            <!--    -->
+            <!--    </div>-->
+            
+            <div id="div_BigBox">
+                <div id="danmu" >
+                    <div id="danmu_1"> <p >这个页面也太简洁了吧</p></div>
+                    <div id="danmu_2"> <p >好看好看，i了i了</p></div>
+                    <div id="danmu_3"> <p >世界如此可爱，灵梦如此好看</p></div>
+                    <div id="danmu_4"> <p >可爱捏~</p></div>
+                    <div id="danmu_5"> <p >由我组成弹幕:)</p></div>
+                </div>
+                <div id="div_top">
+                    <ul>
+                        <!--                    <li><a href="404notFind.html" target="_blank">百科</a></li>-->
+                        <!--                    <li><a href="404notFind.html" target="_blank">角色表</a></li>-->
+                        <!--                    <li><a href="404notFind.html" target="_blank">图片</a></li>-->
+                        <li>
+                            <button style="width: 100%;height: 100%;background-color: rgba(255, 255, 255, 0);border-style: none;font-size: 20px"
+                                    @click="tobaike">百科
+                            </button>
+                        </li>
+                        <li>
+                            <button style="width: 100%;height: 100%;background-color: rgba(255, 255, 255, 0);border-style: none;font-size: 20px"
+                                    @click="toJues">角色表
+                            </button>
+                        </li>
+                        <li>
+                            <button style="width: 100%;height: 100%;background-color: rgba(255, 255, 255, 0);border-style: none;font-size: 20px"
+                                    @click="topicture">图片
+                            </button>
+                        </li>
+                        <li>
+                            <el-input placeholder="这里什么都没有了" prefix-icon="el-icon-search" v-model="input2">
+                            </el-input>
+                        </li>
+                    </ul>
+                </div>
+  
+                <div class="container">
+                    <div class="content">
+                        <!-- 这里是要垂直居中的内容 -->
+                        <button @click="tologin" >立即进入</button>
+                    </div>
+                </div>
+                
+
+<!--                <img src="img/东方开始页.jpg" id="img_top">-->
+                <!--                <el-carousel height="900px"  style="margin-top: 0px;z-index: 0" :autoplay=false>-->
+                <!--                    <el-carousel-item v-for="item in ItemImg" :key="item">-->
+                <!--                        <img :src="item" width="100%" height="110%"/>-->
+                <!--                    </el-carousel-item>-->
+                <!--                </el-carousel>-->
+                <div id="div_sim1">
+                    <table width="1200px"
+                           style="border-style: solid;border-radius: 20px;background-color: rgba(252,252,247,0.98);margin: 0 auto">
+                        <tr border="1" style="font-size: 20px">
+                            <td rowspan="4" height="690px" style="border-right-style: solid"><img src="img/bouli.png"
+                                                                                                  style="border-radius: 10px  0px  0px 10px;z-index: -5"
+                                                                                                  width="100%"
+                                                                                                  height="690px"></td>
+                            <td width="150px" height="70px">&nbsp&nbsp人物名:</td>
+                            <td width="150px" style="text-align: center">博丽灵梦</td>
+                            <td width="150px">&nbsp&nbsp英文名:</td>
+                            <td width="150px" style="text-align: center">Hakurei Reimu</td>
+                        </tr>
+                        <tr style="font-size: 20px">
+                            <td width="150px" height="70px">&nbsp&nbsp种族:</td>
+                            <td width="150px" style="text-align: center">人类</td>
+                            <td width="150px">&nbsp&nbsp职业:</td>
+                            <td width="150px" style="text-align: center">巫女</td>
+                        </tr>
+                        <tr style="font-size: 25px">
+                            <td colspan="4" height="50px" style="text-align: center">能力</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: center;line-height: 40px;font-size: 30px">
+                                <p>操纵灵气的能力</p>
+                                <p>在空中飞行程度的能力</p>
+                                <p>主要拥有在空中飞翔程度的能力</p>
+                                <p>发现空间的间隙，利用其创造结界</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="div_sim2">
+                    <p>
+                    <hr>
+                    </p>
+                    <p style="font-size: 50px;font-family: 华文中宋;color: #66b1ff;letter-spacing:5px;margin-top: 50px">
+                        有名的地点</p>
+                    <table border="0" width="1200px" style="margin: 50px auto">
+                        <tr>
+                            <td style="width:300px;height: 450px">
+                                <div id="div_notimg"><img src="img/imgIndex2/pr1.png">
+                                    <div id="div_simpr"><p style="font-size: 25px;text-indent: 0em">永远亭</p>
+                                        <p>有一片常年被浓雾覆盖，可见度非常差的广阔竹林。竹子因为生长的很快所以无法被人们当成路标。因此一旦在竹林中迷路就很难再到达目的地。</p>
+                                        <p>
+                                            永远亭就是由那种非同寻常构建而成的。在屋子里居住的月兔，月的装饰物。一切都是非同寻常的东西，也因此而拒绝时间的前进。据说就是因为这个原因，房屋的主人才将这座建筑物起名为永远亭。想体味非同寻常之感的人，可以偶而去造访那里看看。只不过，首先得保证不在竹林里迷路能正确的到达。
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="width:300px;height: 450px">
+                                <div id="div_notimg"><img src="img/imgIndex2/pr2.jpg">
+                                    <div id="div_simpr"><p style="font-size: 25px;text-indent: 0em">太阳花田</p>
+                                        <p>
+                                            在夏天，往山的相反方向往幻想乡的深处走，会到达一片黄色、让人目眩的大草原。那里被称为太阳花田，黄色的正体是一大片向日葵田。
+                                        </p>
+                                        <p>
+                                            夜晚的向日葵田会成为有活力的妖怪们的夏天演唱会会场。加入到当中的话，会被<span style="color: red">大量妖怪</span> 包围的
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="width:300px;height: 450px">
+                                <div id="div_notimg"><img src="img/imgIndex2/pr3.jpg">
+                                    <div id="div_simpr"><p style="font-size: 25px;text-indent: 0em">无缘塚</p>
+                                        <p>
+                                            通过再思之道再往深处，尽头就是无缘塚。这里是个被众树包围的小地方，不过这里无论对人类还是妖怪来说，都是幻想乡中<span
+                                                style="color: red">最危险的地方</span>之一。
+                                        </p>
+                                        <p>
+                                            这里是没有亲人的人的墓地，不过因为常常有没有亲人的人从外面世界误闯进来，这里的比率逐渐开始向外面世界偏斜，结界变稀薄了。
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="width:300px;height: 450px">
+                                <div id="div_notimg"><img src="img/imgIndex2/pr4.jpg">
+                                    <div id="div_simpr"><p style="font-size: 25px;text-indent: 0em">三途河</p>
+                                        <p>
+                                            众所周知的这是一条将此岸和彼岸分开的河
+                                        </p>
+                                        <p>
+                                            河被浓雾包围，无分日夜。不过雾里闪烁着光芒。河中突出很多长了苔藓的尖石，给人一种异世界的感觉。
+                                        </p>
+                                        <p>游泳渡河是不可能的，要渡河只能乘坐死神的船。死神要求的渡河费用异常地高，<span
+                                                style="color: red">事实上生者是无法过河的。</span></p>
+                                        <p>尤其是过河后，再也无法复活。没有生者会愿意过河吧。</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:300px;height: 450px">
+                                <div id="div_notimg"><img src="img/imgIndex2/pr5.jpg">
+                                    <div id="div_simpr"><p style="font-size: 25px;text-indent: 0em">妖怪之山</p>
+                                        <p>
+                                            妖怪之山是很久以前起，就住着许多妖怪的地方，比人类更久远。通常，提到山的时候就是指这座妖怪之山。
+                                        </p>
+                                        <p>
+                                            山中的妖怪和人们、山下的妖怪不同，过着独立的社会，担任着幻想乡的一个重要的平衡点。
+                                        </p>
+                                        <p>山中的妖怪比幻想乡的任何种族更开朗，更团结，伴随着先进的技术过着丰富的近未来生活。不过也因为强烈的同伴意识，对<span
+                                                style="color: red">其他人也相当排斥。</span></p>
+                                        <p>所以，山中实际情况是充满了谜团。</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="width:300px;height: 450px">
+                                <div id="div_notimg"><img src="img/imgIndex2/pr6.jpg">
+                                    <div id="div_simpr"><p style="font-size: 25px;text-indent: 0em">无名之丘</p>
+                                        <p>
+                                            在妖怪之山的对面有座很矮的山，在中腹有片绽开着大量铃兰的草原。不知为什么，这里并不为人所知。
+                                        </p>
+                                        <p>
+                                            至于这片铃兰草原为什么会被称为无名之丘，那是因为以前这里是丢弃之地
+                                        </p>
+                                        <p><span style="color: red">没有名字的婴儿被丢弃在有毒的铃兰丛中，沉睡着死去。尸体会被妖怪吃掉，消灭得一干二净。</span>
+                                        </p>
+                                        <p>也有传言说这里的婴儿会被喜欢恶作剧的妖怪带走养大。身为父母不想见到自己的孩子死掉的情景，心想若丢在这里，说不定能变成妖怪而活下去。真是悲伤的故事。</p>
+                                        <p>因为有着这么黑暗的过去，现在几乎没有人类接近这地方。后来妖怪也不来了，现在此地成了被幻想乡遗忘之地，是为“无名”</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="width:300px;height: 450px">
+                                <div id="div_notimg"><img src="img/imgIndex2/pr7.jpg">
+                                    <div id="div_simpr"><p style="font-size: 25px;text-indent: 0em">迷途竹林</p>
+                                        <p>
+                                            从人类村落处看，妖怪之山的反方向有一片广阔的竹林，那就是迷途竹林。
+                                        </p>
+                                        <p>
+                                            竹林中没有什么醒目的标志，再加上竹子成长飞快，景色变动，的确很容易迷路。
+                                        </p>
+                                        <p>竹林不但广阔，而且地面有点倾斜，竹子斜斜地生长，令人失去平衡感。本来打算一直走也会在不觉间回到原处。
+                                            而且这里也是妖怪喜欢聚集的地方，普通人是不该来的</p>
+                                        <p>不管怎样，除了对这片竹林熟悉的伐竹人以外，最好还是不要踏入较好。</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="width:300px;height: 450px">
+                                <div id="div_notimg"><img src="img/imgIndex2/pr8.jpg">
+                                    <div id="div_simpr"><p style="font-size: 25px;text-indent: 0em">雾雨邸</p>
+                                        <p>
+                                            位于魔法森林某处的一间屋子，<span style="color: limegreen">雾雨魔理沙</span>居住在这里，平常在家中钻研魔法。
+                                        </p>
+                                        <p>
+                                            也是魔理沙经营的雾雨魔法店所在地，实际上她的家就是店铺。
+                                        </p>
+                                        <p>雾雨魔法店实际上类似于万事屋，可以委托多种内容，不过魔理沙经常外出找不到人。</p>
+                                        <p>委托内容包括赌博预言、异变解决、妖怪退治、宝物探索等。成功的话就拿下报酬，失败的话则一文不取，据说是挺可靠的。</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="div_sim3">
+                    <p>
+                    <hr>
+                    </p>
+                    <p style="font-size: 50px;font-family: 华文中宋;color: #66b1ff;letter-spacing:5px;margin-top: 50px;text-align: center;margin-bottom: 50px">
+                        出色的同人作品</p>
+                    <div id="div_car1">
+                        <div><img src="img/imgIndex2/car1.jpg"></div>
+                        <div id="txt1">
+                            <p style="font-size: 35px;font-family: 华文隶书;text-align: center">东方幻想万华镜</p>
+                            <p>本动画并非东方的官方动画化，亦不是商业动画</p>
+                            <p>这是一个充满幻想的世界，人类，妖精，妖怪，神明，这些看似无法共存的种族都幸福的生活在这个幻想乡之中</p>
+                            <p>在这个奇幻千姿百态的世界之中，一场灾难突然袭来，各地突然出现的“神隐”现象使每一个幻想乡之中的居民都活在梦魇之中，为了对抗这场噩梦，我们的四个主人公展开了全面的调查，这奇怪的气氛究竟意味着什么？</p>
+                        </div>
+                    </div>
+                    <div id="div_car2">
+                        <div>
+                            <img src="img/imgIndex2/car2.jpg">
+                        </div>
+                        <div id="txt1">
+                            <p style="font-size: 35px;font-family: 华文隶书;text-align: center">
+                                东方梦想夏乡
+                            </p>
+                            <p>
+                                简称“梦想夏乡”，是一部由同人社团舞风（MAIKAZE）制作的东方Project二次同人动画。2008年12月29日，《东方梦想夏郷》第一话在C75首发
+                            </p>
+                            <p>
+                                因为更新时间间隔太长，迄今为止每四年更新一次，所以也被称为“奥运番”。
+                            </p>
+                        </div>
+                    </div>
+                    <div id="div_car3">
+                        <div>
+                            <img src="img/imgIndex2/car3.jpg">
+                        </div>
+                        <div id="txt1">
+                            <p style="font-size: 35px;font-family: 华文隶书;text-align: center">
+                                东方幼灵梦
+                            </p>
+                            <p>
+                                “这是灵梦尚幼，食人妖怪尚大时的故事。——并且，还是未曾向他人道述过的巫女 的故事。”
+                            </p>
+                            <p>
+                                不管是画风还是故事情节，都让人感到"十分的温馨"和令人感慨，故事的后期发展也会出乎意料。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="div_sim4">
+                    <p>
+                    <hr>
+                    </p>
+                    <p style="font-size: 50px;font-family: 华文中宋;color: rgba(170,143,73,0.83);letter-spacing:5px;margin-top: 50px;text-align: center;margin-bottom: 50px">
+                        关于幻想乡</p>
+                    <div id="div_pictureMessage">
+                    <p style="font-size: 35px;margin-top: 20px;font-family: 华文隶书">幻想乡</p>
+                        <p>
+                            幻想乡在过去是被称为「东之国远离人类村落的边境之地」的场所
+                        </p>
+                        <p>
+                            虽说如此，普通的手段是无法往来于幻想乡内外的，因为这里被常识的结界「博丽大结界」所隔断。
+                        </p>
+                        <p>
+                            要说幻想乡有什么特别之处，那自然是——在现实中被视为「非常识」、「不存在」的妖怪、神明、魔法等等幻想，在这里都是理所当然的东西。被否定、被遗忘、成为幻想之物的归宿，那就是幻想乡.
+                        </p>
+      
+                        <p>
+                            在这里，人类仍然敬畏神明，仍然谈论着魍魉魑魅。巫女能在空中飞行也好、吸血鬼释放出血红雾气也好、冬天和夜晚不会结束也好、某位圣人突然复活也好……
+                            妖怪等非人之物掀起异变、人类中的英雄前去应对，这便是幻想乡的日常。
+                        </p>
+                    </div>
+       
+                </div>
+                <div id="div_sim5">
+                    <p>制作人:刘伟双</p>
+                    <p>素材及灵感来源<a href="https://www.bilibili.com/">bilibili</a>&nbsp;
+                        <a href="https://cache.thwiki.cc/%E9%A6%96%E9%A1%B5">thwiki</a>
+                        <a href="https://zh.moegirl.org.cn/Mainpage">萌娘百科</a></p>
+                
+                </div>
+               
+            </div>
+        
+        
+        </div>
+    </body>
+    <script src="js/vue.js"></script>
+    <script src="js/axios-0.18.0.js"></script>
+    <!-- import JavaScript -->
+    <script src="element-ui/lib/index.js"></script>
+    <script>
+        window.addEventListener('scroll', function () {
+            var navbar = document.getElementById('div_top');
+            var sim1 = document.getElementById('div_sim1');
+            var sim2 = document.getElementById('div_sim2');
+            var car1 = document.getElementById('div_car1');
+            var car2 = document.getElementById('div_car2');
+            var car3 = document.getElementById('div_car3');
+            var sim4 = document.getElementById('div_pictureMessage');
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            //导航栏透明度调整
+            if (scrollTop > 920) {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 1)'; /* 滚动时将透明度设为1，完全不透明 */
+            } else {
+                navbar.style.backgroundColor = 'rgba(0, 0, 0, 0)'; /* 滚动到顶部时将透明度设为0*/
+            }
+            // div_sim1显示
+            if (scrollTop > 600) {
+                sim1.style.opacity = 1;
+                sim1.style.width="1600px";
+            } else {
+                sim1.style.opacity = 0;
+                sim1.style.width="590px";
+            }
+            // div_sim2展开
+            if (scrollTop > 1450) {
+                sim2.style.height = "1074px";
+            } else {
+                sim2.style.height = "150px";
+            }
+            
+            // div_car显示
+            if (scrollTop > 2500) {
+                car1.style.width = "1500px";
+                car3.style.width = "1500px";
+             
+            } else {
+                car1.style.width = "50px";
+                car3.style.width = "50px";
+            }
+            if (scrollTop > 2600) {
+                car2.style.width = "1500px";
+      
+        
+            } else {
+                car2.style.width = "50px";
+          
+            }
+            if (scrollTop > 2850) {
+        
+                car3.style.width = "1500px";
+                car3.style.opacity = 1;
+        
+            } else {
+            
+                car3.style.opacity =0;
+            }
+            // -----div_car显示-----
+            if (scrollTop > 3550) {
+                sim4.style.width = "1400px";
+            } else {
+                sim4.style.width = "100px";
+            }
+    
+        });
+        
+        new Vue({
+            el: "#app",
+            
+            data() {
+                return {
+                    ItemImg: ["img/huan1.png", "img/huan2.png", "img/huan3.jpg"]
+                }
+                
+            },
+            mounted(){
+           
+            },
+            methods: {
+                tobaike() {
+                    window.location.href = "baike.html";
+                },
+                toJues() {
+                    window.location.href = "jues.html";
+                    
+                    // window.open("jues.html") ;
+                },
+                topicture() {
+                    //跳转图片页面
+                    window.location.href = "picture.html";
+                    // window.open("picture.html") ;
+                },
+                tologin(){
+                    window.location.href = "login.html";
+                }
+                
+            }
+            
+        })
+    </script>
+</html>

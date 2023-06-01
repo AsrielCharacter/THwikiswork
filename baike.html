@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>百科</title>
+        <link rel="stylesheet" href="css/baike.css">
+        <link rel="stylesheet" href="element-ui/lib/theme-chalk/index.css">
+    </head>
+    <body>
+        <div id="myBackground"><div id="myBackground_1"><p>百科界面</p> </div> </div>
+       <div id="app">
+        <div id="div_date">
+            <el-calendar v-model="value">
+            </el-calendar>
+        </div>
+        <div id="div_baikeBig">
+            <div id="div_sim1" v-for="(item,index) in ItemImgsMessage"  >
+                <p id="p_Title">{{ItemImgsMessage[index].pTitle}} </p>
+                <p id="div_simMessage">{{ItemImgsMessage[index].pMessage}}</p>
+            </div>
+        </div>
+       </div>
+    </body>
+    <script src="js/vue.js"></script>
+    <script src="js/axios-0.18.0.js"></script>
+    <!-- import JavaScript -->
+    <script src="element-ui/lib/index.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            // element.style.backgroundImage= "url('./img/Bigbc2.jpg')"
+            var background = document.getElementById('myBackground');
+            background.style.opacity = 0;
+            background.style.transform = "scale(1.5)";
+          
+            // background.style.width = 0;
+            // background.style.height = 0;
+      
+          
+        });
+        
+        new Vue({
+            el: "#app",
+
+            data() {
+                return {
+                    ItemImgsMessage: [{pTitle: "什么是东方Project", pMessage: "简称东方，或称东方系列，是日本的同人社团“上海爱丽丝幻乐团”（ZUN）所制作的一系列以弹幕射击游戏为主的游戏，并衍生有漫画、小说等作品。\n" +
+                                "                    其自成一派的世界观，个性鲜明的各种角色，精心排列设置的几何状弹幕，为每位角色、每个场合设计的风格多变的音乐，在爱好者之间有着非常高的人气。\n" +
+                                "                    又因为制作方上海爱丽丝幻乐团（ZUN）对二次创作限制条件较少、管理较为宽松的缘故，不少爱好者为其制作了大量的二次创作作品，例如音乐、漫画、小说、动画、插图、游戏、MAD等，形成了种类繁多的二次创作潮流。在niconico上与偶像大师、VOCALOID并称为“御三家”。截至目前，东方Project在niconico上的相关创作视频总播放量已经达到45亿以上，在nico仅次于VOCALOID系列，而东方Project相关作品在Youtube等国际视频网站上也广受热议，一度引发热潮。\n" +
+                                "                    2010年10月，东方Project获得了吉尼斯世界纪录认证为“最多作品的同人射击游戏”。"},
+                        {pTitle: "东方的原作者ZUN", pMessage: "ZUN作为东方Project的原作者，在社群中拥有特别的地位。\n" +
+                                    "ZUN是其同人社团上海爱丽丝幻乐团最主要成员，除少部分美术素材外，他几乎独力完成了绝大多数官方游戏的开发。\n" +
+                                    "游戏类型之外的其余官方作品，ZUN也全部参与了创作过程，并且担任了脚本、策划等重要角色。\n" +
+                                    "可以说，对于东方Project系列，ZUN拥有绝对的主导地位和代表地位。\n" +
+                                    "同时，社群也倾向于不把东方Project视为ZUN的其中一个作品系列，而是把任何与ZUN本人相关的信息都视为东方官方内容的一部分。"},
+                        {pTitle: "为什么后来的页面不写后端", pMessage: "写了也没人了解，也不能得分，所以这次新增的页面没写后端，所以完成的速度快"},
+                        {pTitle: "", pMessage: ""}],
+                    value: new Date()
+                }
+                
+            },
+            methods: {}
+            
+        })
+    </script>
+</html>

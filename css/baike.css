@@ -1,0 +1,57 @@
+body{
+    /*background-color: whitesmoke;*/
+    background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255, 0.2)), url('../img/baike.jpg') no-repeat;
+    background-size:  100% 100%;
+    /*背景图片固定*/
+    background-attachment: fixed;
+}
+#myBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 替换为你的背景图片路径 */
+    background-position: center center;
+    /*background:  url('../img/Bigbc3.jpg');*/
+    background-size: cover;
+    opacity: 1; /* 初始时设置为不透明 */
+    transition: opacity 2s ease,width 1s ease,height 1s ease; /* 设置过渡效果，持续时间为1秒，缓动效果为ease */
+    /*防止在过渡的时候遮挡元素*/
+    z-index: -2;
+
+}
+#myBackground_1{
+    margin: 40px 5%;
+}
+#myBackground_1 p{
+    font-size: 40px;
+}
+#div_baikeBig{
+    width: 1000px;
+    height: 1200px;
+    background-color: rgba(255,255,255,0.9);
+    overflow-y: auto;
+    margin-top: 0px;
+    margin-left: 200px;
+    border-radius: 10px;
+}
+#div_sim1 #p_Title{
+    font-size: 35px;
+    padding-left: 5px;
+    border-left-style: solid;
+    margin-left: 10px;
+    font-family: 宋体;
+}
+#div_sim1 #div_simMessage{
+    text-indent: 2em;
+    font-size: 22px;
+    line-height: 40px;
+    font-family: 楷体;
+}
+#div_date{
+    float: right;
+    width: 600px;
+    height: 500px;
+    margin-right: 40px;
+}

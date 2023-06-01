@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>登陆</title>
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="element-ui/lib/theme-chalk/index.css">
+       
+        
+    </head>
+    <body>
+        <!-- 新页面过渡 -->
+        <div id="myBackground"><div id="myBackground_1"><p>登陆界面</p> </div> </div>
+        <div id="login" >
+            <!--      编辑弹窗      -->
+            <el-dialog title="编辑账号信息" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
+                <el-form :model="form">
+                    <el-form-item label="账号 数字汉字都可以" :label-width="formLabelWidth">
+                        <el-input placeholder="xxx" v-model="name"/>
+                    </el-form-item>
+                    <el-form-item label="邮箱地址" :label-width="formLabelWidth">
+                
+                        <el-input placeholder="xxx@xxx" v-model="Em"/>
+                    </el-form-item>
+                    <el-form-item label="登陆密钥" :label-width="formLabelWidth">
+                        <el-input placeholder="xxxxxx" v-model="Pass" show-password/>
+                    </el-form-item>
+        
+                </el-form>
+                <el-button @click="dialogVisible = false">取 消</el-button>
+                <el-button type="primary" @click="toRegister">确定</el-button>
+                </span>
+            </el-dialog>
+            <br><br>
+            <div id="div_input">
+                <p>控制台</p>
+                <input type="text" id="input_login" v-model="name" placeholder="用户id"><br>
+                <br><br>
+                <input type="password" id="input_login2" v-model="Pass" placeholder="密 码|身份密钥">
+
+            </div>
+
+            <br>
+            <div id="div_button">
+    
+                <el-button style="width: 70%" type="success"  @click="toLogin">立即进入</el-button>
+    
+                <br> <br>
+    
+                <el-button :plain="true"  style="width: 70%" @click="createuser">立即注册</el-button>
+
+            </div>
+
+     
+        </div>
+        
+    </body>
+    <script src="js/vue.js"></script>
+    <script src="js/axios-0.18.0.js"></script>
+    <!-- import JavaScript -->
+    <script src="element-ui/lib/index.js"></script>
+    <script>
+    
+
+        new Vue({
+            el: '#login',
+        
+            data() {
+                return {
+                    Message: [{
+                        "userName": "1",
+                        "userMessage": "1",
+                        "userTime": "1",
+
+                    }],
+                    form: "",
+                    formLabelWidth: "",
+                    name: '',
+                    Em: '',
+                    Pass: '',
+                    input2: '',
+                    dialogVisible: false,
+
+                    
+                    
+                
+                };
+            },
+            mounted(){
+                this.openmessage();
+            },
+            methods: {
+                openmessage(){
+                    window.addEventListener('load',()=> {
+                        //更改透明度
+                        var element = document.getElementById('login');
+                        element.style.opacity = 1; /* 当页面加载完成后，将元素的透明度设置为1 */
+                        var background = document.getElementById('myBackground');
+                        background.style.opacity = 0;
+                    });
+                    sessionStorage.setItem("userName","未登录");
+                    this.$notify.info({
+                        title: '消息',
+                        message: '进入登陆界面'
+                    });
+                    
+                },
+ 
+                handleClose(done) {
+                    //编辑对话框关闭
+                    done();
+                },
+                createuser() {
+                    // 注册的弹窗
+                    this.dialogVisible = true;
+        
+                },
+                toLogin() {
+                    // 登陆请求
+                    axios({
+                        url: `http://127.0.0.1:8081/login`,
+                        method: 'post',
+                        withCredentials: true,
+                        data: {
+                            "name": this.name,
+                            "password": this.Pass
+                        }
+            
+                    }).then(res => {
+                     
+                       
+                        if (res.data.data == "登陆成功") {
+                            
+                            // this.Vue.property.$aaa=1;
+                            //通过sessionStorage传值
+                            sessionStorage.setItem("ifLogin","1");
+                            sessionStorage.setItem("userName",this.name);
+                           
+                            // this.input_login.disabled=true;
+                        }else {
+                            sessionStorage.setItem("ifLogin","0");
+                            sessionStorage.setItem("userName","未登录");
+                        }
+                        
+    
+                        window.location.href="index.html"
+                    })
+        
+                },
+                toRegister() {
+                    axios({
+                        url: `http://127.0.0.1:8081/register`,
+                        method: 'post',
+                        withCredentials: true,
+                        data: {
+                            "name": this.name,
+                            "email": this.Em,
+                            "password": this.Pass
+                        }
+            
+                    }).then(res => {
+                        alert(res.data.data);
+                        if (res.data.data == "注册成功") {
+                            // this.input_login.disabled=true;
+                            this.$notify({
+                                title: '信息',
+                                message: '注册成功',
+                                type: 'success'
+                            });
+                        }
+                    })
+                    // 注册的弹窗
+                    this.dialogVisible = false;
+                }
+    
+    
+            }})
+        </script>
+</html>

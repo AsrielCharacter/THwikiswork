@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!--suppress XmlDuplicatedId -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- import CSS -->
+        <link rel="stylesheet" href="element-ui/lib/theme-chalk/index.css">
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+    <body>
+        <div id="app">
+            <el-dialog
+                    title="置顶公告"
+                    :visible.sync="centerDialogVisible"
+                    width="45%"
+                    center>
+                <div id="div_showAnnouncementMessage">
+                    <!--         遍历的公告           -->
+                    <div id="div_showItem" v-for="message in AnnouncementMessage">
+                        <p id="ItemTime">{{message.title}}<span><i>{{message.time}}</i> </span></p>
+                        <p id="ItemMessage">{{message.message}}</p>
+                    </div>
+                </div>
+                <!--       表格废案 2023/5/20/17:57         -->
+                <!--                <table border="0" width="100%" >-->
+                <!--                    <tr>-->
+                <!--                        <td style="width: 25%;height: 30px;">日期</td>-->
+                <!--                        <td style="width: 20%;height: 30px;">标题</td>-->
+                <!--                        <td style="width: 50%;height: 30px;">内容</td>-->
+                <!--                    </tr>-->
+                <!--                    <tr v-for="message in AnnouncementMessage">-->
+                <!--                        <td style="height: 30px;">{{message.time}}</td>-->
+                <!--                        <br>-->
+                <!--                        <td>{{message.title}}</td>-->
+                <!--                        <td>{{message.message}}</td>-->
+                <!--                    </tr>-->
+                <!--                </table>-->
+                
+                <span slot="footer" class="dialog-footer">
+                <el-button type="primary" @click="centerDialogVisible = false">确 定</el-button>
+               </span>
+            </el-dialog>
+            
+            <div id="div_top">
+                
+                <ul>
+                    <!--                    <li><a href="404notFind.html" target="_blank">百科</a></li>-->
+                    <!--                    <li><a href="404notFind.html" target="_blank">角色表</a></li>-->
+                    <!--                    <li><a href="404notFind.html" target="_blank">图片</a></li>-->
+                    <li>
+                        <button style="width: 100%;height: 100%;background-color: rgba(255, 255, 255, 0.6);border-style: none;font-size: 20px"
+                                @click="tobaike">百科
+                        </button>
+                    </li>
+                    <li>
+                        <button style="width: 100%;height: 100%;background-color: rgba(255, 255, 255, 0.6);border-style: none;font-size: 20px"
+                                @click="toJues">角色表
+                        </button>
+                    </li>
+                    <li>
+                        <button style="width: 100%;height: 100%;background-color: rgba(255, 255, 255, 0.6);border-style: none;font-size: 20px"
+                                @click="topicture">图片
+                        </button>
+                    </li>
+                    <li>
+                        <el-input placeholder="这里什么都没有了" prefix-icon="el-icon-search" v-model="input2">
+                        </el-input>
+                    </li>
+                </ul>
+            
+            </div>
+            
+            <div id="div_selectItem">
+                <ol>
+                    <li><a href="#a1">幻想乡</a></li>
+                    <li><a href="#a2">存在的人物</a></li>
+                    <li><a href="#div_smTitle2">登场剧情</a></li>
+                
+                </ol>
+            </div>
+            <div id="div_clear1"></div>
+            <!--        历史公告的展示  位置问题有待考虑 还有点击判断是那个还得学习   -->
+            <!--            <div id="div_showAnnouncement">-->
+            <!--                <ul>-->
+            <!--                    <li>121</li>-->
+            <!--                    <li>222</li>-->
+            <!--                </ul>-->
+            <!--            </div>-->
+            <!--     这里的v-if是判断登陆后，就不显示登陆按钮了       -->
+            <div id="div_lookLogin" v-if="ifLogin">
+                
+                <el-button @click="tologin"><p>登陆</p></el-button>
+            </div>
+            
+            
+            <div id="div_Big">
+                
+                <p id="a1">幻想乡</p>
+                <!--    轮播图   -->
+                <el-carousel height="500px" id="div_car">
+                    <el-carousel-item v-for="item in ItemImg" :key="item">
+                        <img :src="item" width="100%" height="110%"/>
+                    </el-carousel-item>
+                
+                </el-carousel>
+                <!--    轮播图!   -->
+                
+                <p>幻想乡是东方Project系列故事的主要舞台，很多时候被用来指代整个东方Project世界。</p>
+                <p>幻想乡在过去是被称为「东之国远离人类村落的边境之地」的场所，深藏于日本境内的某片群山之中。</p>
+                <p>虽说如此，普通的手段是无法往来于幻想乡内外的，因为这里被常识的结界「博丽大结界」所隔断。</p>
+                <p>要说幻想乡有什么特别之处，那自然是——在现实中被视为「非常识」、「不存在」的妖怪、神明、魔法等等幻想，在这里都是理所当然的东西。</p>
+                
+                <p>被否定、被遗忘、成为幻想之物的归宿，那就是幻想乡。</p>
+                <p>在这里，人类仍然敬畏神明，仍然谈论着魍魉魑魅。</p>
+                <p>巫女能在空中飞行也好、吸血鬼释放出血红雾气也好、冬天和夜晚不会结束也好、某位圣人突然复活也好……</p>
+                <p>妖怪等非人之物掀起异变、人类中的英雄前去应对，这便是幻想乡的日常。</p>
+                <div id=div_smTitle1>
+                    <p id="a2">存在的人物(主要)</p>
+                </div>
+                <div id="div_content1">
+                    <table border="0">
+                        <tr>
+                            <th colspan="2"><br/>人物信息</th>
+                        </tr>
+                        <tr>
+                            <td style="width:150px"><b>人物名</b></td>
+                            <td style="min-width:300px">博丽灵梦</td>
+                        </tr>
+                        <tr>
+                            <td><b>英文名</b></td>
+                            <td>Hakurei Reimu</td>
+                        </tr>
+                        <tr>
+                            <td><b>种族</b></td>
+                            <td>人类</td>
+                        </tr>
+                        <tr>
+                            <td><b>职业</b></td>
+                            <td>巫女</td>
+                        </tr>
+                        <tr>
+                            <td><b>能力</b></td>
+                            <td>操纵灵气的能力<br/>
+                                在空中飞行程度的能力<br/>
+                                主要拥有在空中飞翔程度的能力
+                                <br>
+                            </td>
+                        </tr>
+                    </table>
+                    <img src="img/bouli.png" width="235px" height="300px"/>
+                </div>
+                <div id=div_smTitle2>
+                    <p id="a2">登场剧情</p>
+                </div>
+                <div id="div_content2">
+                    <ul>
+                        <li>平日里，灵梦看守着博丽神社，日常就是打扫神社，没有特别的事情要做。</li>
+                        <li>每当有外界人误入幻想乡时，一般都是由灵梦将其送出幻想乡。</li>
+                        <li>此外，在每年的年初等重要时间点，灵梦需要举行仪式，以维持幻想乡接下来的平衡</li>
+                        <li>虽然灵梦的工作之一是看守博丽大结界，但是灵梦对于大结界本身的机理并不十分了解</li>
+                        <li>灵梦的观察力很敏锐，她的直觉总是能准确命中，因此常常被认为拥有犯规一般的幸运，总能察觉到事件的线索与幕后黑手</li>
+                        <li>她的实力很强劲，在幻想乡内少有对手</li>
+                        <li>遭遇更强甚至无法战胜的敌人时，也能够通过符卡规则或运气化解。</li>
+                        <li>灵梦并不经常做一般巫女的职责工作，对于博丽神社侍奉的神明是谁都不了解，对于神社的神明本身快消失了都不关心。</li>
+                        <li>为了增加博丽神社的人气，灵梦经常会试图与信仰上的竞争对手（如守矢神社、命莲寺）进行竞争。</li>
+                        <li>即便如此，守矢神社的东风谷早苗，在前来博丽神社打扫守矢神社的分社之余，也会替灵梦照料神社以及带来礼品</li>
+                        <li>在原作中，灵梦经常受到大家的照顾，一会儿十分可靠，一会儿又非常靠不住。</li>
+                        <li>在原作者ZUN的概念里，灵梦与努力家主角魔理沙相对，是不需要努力就可以获得成功的类型。</li>
+                    </ul>
+                
+                </div>
+                <div id="div_image1">
+                    <!-- 				<img src="img/bouli.png"/ width="235px" height="300px">
+                <img src="img/lumiyas.png"/ width="235px" height="300px"">
+                <img src="img/mouliss.png"/ width="235px" height="300px"">
+                 -->
+                    <img/>
+                </div>
+                <div id="div_video">
+                    <p>东方幻想万华镜</p>
+                    <video width="320" src="video/东方幻想万华镜.mp4" height="240" controls="controls">
+                        <!--                        <source src="video/东方幻想万华镜.mp4" type="video/mp4"/>-->
+                    </video>
+                
+                </div>
+            
+            
+            </div>
+            <div id="div_end">
+                <p>制作人:刘伟双</p>
+                <p>素材来源<a href="https://www.bilibili.com/">bilibili</a>&nbsp;
+                    <a href="https://cache.thwiki.cc/%E9%A6%96%E9%A1%B5">thwiki</a>
+                    <a href="https://zh.moegirl.org.cn/Mainpage">萌娘百科</a></p>
+                <!-- <ul>列表评论渲染，已废弃
+                    <li v-for="(value, key) in Message"> {{ key }}: {{ value }} </li>
+                </ul> -->
+            </div>
+            <div id="div_writemessage">
+                <!-- 评论 -->
+                <table border="0">
+                    <tr>
+                        <td style="width:100px;height: 30px;font-size: 15px">id:{{name}}</td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/boulifufu.jpg"
+                                 style="border-radius: 50%;border-style: solid;transition: transform 0.9s;" width="50px"
+                                 height="50px"/></td>
+                        <td style="width:500px;font-size: 5px;height: 80px;"><textarea rows="6"
+                                                                                       cols="68"
+                                                                                       style="resize:none;background-color: transparent"
+                                                                                       v-model="writeMessage">
+</textarea></td>
+                        <!-- <button style="width:100px;height: 100px;background-color: #409EFF;">发送</button> -->
+                        <td>
+                            <el-button type="primary" style="width:100px;height: 100px;" @click="towriteMessage">发送
+                            </el-button>
+                        </td>
+                    
+                    </tr>
+                </table>
+            </div>
+            
+            <div id="div_message">
+                <table border="0" v-for="message in Message" style="background-color: rgba(255, 255, 255, 0.9);">
+                    <tr>
+                        <td style="width:90px;height: 30px;font-size: 15px;text-align: left">
+                            用户名:&nbsp;{{message.userName}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="90px"><img src="img/boulifufu.jpg" width="50px" height="50px"/></td>
+                        <td style="width:1000px;font-size: 20px;border-bottom:0.5mm solid;font-family: 宋体">
+                            <p>&nbsp&nbsp&nbsp{{ message.userMessage }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        
+                        </td>
+                        <td style="text-align: right">
+                            <!--                我觉得应该把点赞 反对的弄成两个不同的背景颜色，也不要文字，一目了然 算了，就弄个点赞的           -->
+                            <p>
+              
+                                <span>{{message.userTime}}</span></p>
+                        </td>
+                    </tr>
+                
+                </table>
+                
+                
+                <!-- 				<p>{{message.userName}}</p>
+                <img src="img/boulifufu.jpg" width="50px" height="50px"/>
+                <p> {{ message.userMessage }}</p>	 -->
+            </div>
+        
+        </div>
+    </body>
+    <!-- import Vue before Element -->
+    <script src="js/vue.js"></script>
+    <script src="js/axios-0.18.0.js"></script>
+    <!-- import JavaScript -->
+    <script src="element-ui/lib/index.js"></script>
+    
+    <script>
+        new Vue({
+            el: '#app',
+            
+            data() {
+                return {
+                    Message: [{
+                        "userName": "error",
+                        "userMessage": "这个不是简单的静态网页,是全栈项目",
+                        "userTime": "1",
+                        "dislike": '0',
+                        "like": '0'
+                    }],
+                    AnnouncementMessage: [{
+                        "title": "没后端数据",
+                        "message": "这个不是简单的静态网页,是全栈项目",
+                        "time": "1970",
+                        "top": "1"
+                    }],
+                    form: "",
+                    formLabelWidth: "",
+                    name: 'null',
+                    Em: '',
+                    Pass: '',
+                    input2: '',
+                    dialogVisible: false,
+                    centerDialogVisible: false,
+                    ifLogin: true,
+                    
+                    writeMessage: "",
+                    ItemImg: ["img/huan1.png", "img/huan2.png", "img/huan3.jpg"]
+                    
+                };
+            },
+            mounted() {
+                // 这里是打开页面就启动的方法
+                
+                this.selectMessage();
+                this.getTopAnnouncement();
+            },
+            methods: {
+                tobaike(){
+                    window.location.href = "baike.html";
+                },
+                toJues(){
+                    window.location.href = "jues.html";
+                    
+                    // window.open("jues.html") ;
+                },
+                topicture(){
+                    //跳转图片页面
+                    window.location.href = "picture.html";
+                    // window.open("picture.html") ;
+                },
+                //获取热门公告 可能要改
+                getTopAnnouncement() {
+                    this.centerDialogVisible = true;
+                    axios({
+                        url: `http://127.0.0.1:8081/getTopAnnouncement`,
+                        method: 'get',
+                        withCredentials: true,
+                        header: {}
+                        
+                    }).then(res => {
+                        // 转数组，直接获取的话是不能交给vue遍历的
+                        this.AnnouncementMessage = JSON.parse(JSON.stringify(res.data.data));
+                        
+                    })
+                    
+                },
+                selectMessage() {
+                    
+                    //通过sessionStorage传值判断
+                    if (sessionStorage.getItem("ifLogin") == 1) {
+                        this.$notify({
+                            title: '信息',
+                            message: '登陆成功',
+                            type: 'success'
+                        });
+                        this.ifLogin = false;
+                    }
+                    if (sessionStorage.getItem("ifLogin") == 0) {
+                        this.$notify({
+                            title: '警告',
+                            message: '登陆失败',
+                            type: 'warning'
+                        });
+                        this.ifLogin = true;
+                    }
+                    //复制到评论的头像上面
+                    this.name = sessionStorage.getItem("userName");
+                    
+                    //获取评论
+                    axios({
+                        url: `http://127.0.0.1:8081/readMessage`,
+                        method: 'get',
+                        withCredentials: true,
+                        header: {}
+                        
+                    }).then(res => {
+                        // 转数组，直接获取的话是不能交给vue遍历的
+                        this.Message = JSON.parse(JSON.stringify(res.data.data));
+                        
+                    })
+                    
+                    
+                },
+                tologin() {
+                    window.location.href = "login.html"
+                    //清除sessionStorage值
+                    sessionStorage.clear();
+                    
+                },
+                Findnot() {
+                    this.$notify({
+                        title: '警告',
+                        message: '这个功能暂时没写',
+                        type: 'warning'
+                    });
+                },
+                towriteMessage() {
+                    // 评论提交后端
+                    axios({
+                        url: `http://127.0.0.1:8081/writeMessage`,
+                        method: 'post',
+                        withCredentials: true,
+                        data: {
+                            "userName": 0,
+                            "userMessage": this.writeMessage,
+                            "userTime": ""
+                        }
+                        
+                    }).then(res => {
+                        // 转数组，直接获取的话是不能交给vue遍历的
+                        alert(res.data.data)
+                        this.writeMessage = "";
+                        //刷新
+                        location.reload();
+                        
+                    })
+                }
+            }
+        })
+    </script>
+</html>

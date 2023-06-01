@@ -1,0 +1,86 @@
+body{
+    /*background-color: whitesmoke;*/
+
+
+    /*背景图片固定*/
+
+    background: rgba(255, 255, 255, 0.2) url("../img/loginbc.png") no-repeat fixed center top;
+    background-size:  98% 100%;
+    margin: 0px ;
+    padding: 0px;
+}
+#myBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background-image: url('../img/Bigbc3.jpg'); !* 替换为你的背景图片路径 *!*/
+    background-size: cover;
+    opacity: 1; /* 初始时设置为不透明 */
+    transition: opacity 1.8s ease; /* 设置过渡效果，持续时间为1秒，缓动效果为ease */
+    /*防止影响其他元素*/
+    z-index: -2;
+}
+#myBackground_1{
+    margin: 40px 5%;
+}
+#myBackground_1 p{
+    font-size: 40px;
+}
+#login{
+    /* 右边的登陆页面 */
+    width: 30%;
+    height: 550px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 200px auto;
+    border-radius: 5%;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+#div_input{
+    width: 100%;
+    height: 45%;
+   /* 水平居中*/
+   text-align: center;
+    background-color: rgba(245, 241, 241, 0);
+    margin-top: 0px;
+}
+#div_input p{
+    font-size: 25px;
+}
+#input_login{
+    width: 70%;
+    height: 25%;
+    background-color: rgba(245, 241, 241, 0);
+    border-style:  none none solid none;
+    border-color: black;
+    outline: none;
+    font-size: 20px;
+
+}
+/*这个是消除浏览器自动填充的样式*/
+/*noinspection CssInvalidPseudoSelector*/
+#input_login:-internal-autofill-previewed,
+#input_login:-internal-autofill-selected ,#input_login2:-internal-autofill-previewed,#input_login2:-internal-autofill-selected{
+    -webkit-text-fill-color: black !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+#input_login2{
+    width: 70%;
+    height: 25%;
+    background-color: rgba(245, 241, 241, 0);
+    border-style:  none none solid none;
+   border-color: black;
+    outline: none;
+    font-size: 20px;
+}
+#div_button{
+    margin-top: 30px;
+    width: 100%;
+    height: 100px;
+
+    text-align: center;
+}
+
+

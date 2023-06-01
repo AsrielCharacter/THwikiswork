@@ -1,0 +1,361 @@
+body {
+    /*background-color: whitesmoke;*/
+    /*background-image: url("../img/Bigbc3.gif");*/
+    /*background-repeat: no-repeat;*/
+    /*background-size:  cover;*/
+    /*!*背景图片固定*!*/
+    /*background-attachment: fixed;*/
+}
+
+* {
+    margin: 0px;
+    padding: 0px
+}
+
+#app {
+    top: 0;
+    margin: 0 auto;
+}
+
+#div_BigBox {
+    width: 100%;
+    height: 5500px;
+    position: absolute;
+}
+
+/*#div_top{*/
+/*    width: 100%;*/
+/*    height: 100px;*/
+/*    background-color: #f0f2f5;*/
+/*}*/
+.el-carousel__item h3 {
+    color: #475669;
+    font-size: 18px;
+    opacity: 0.75;
+    line-height: 300px;
+    margin: 0;
+}
+
+.el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
+}
+
+#div_top {
+    /* 顶部导航栏 */
+    width: 100%;
+    height: 60px;
+    /*这里是防止网页刚加载时透明度没生效*/
+    background-color: rgba(255, 255, 255, 0);
+    position: fixed;
+    z-index: 2;
+}
+
+#div_top ul {
+    list-style: none;
+}
+
+#div_top li {
+    /* 导航栏横向排布 */
+    float: left;
+    width: 25%;
+    height: 55px;
+    line-height: 50px;
+    text-align: center;
+}
+
+#div_top a {
+    text-decoration: none;
+}
+
+#div_top li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#img_top {
+    width: 100%;
+    height: 900px;
+}
+
+#div_sim1 {
+    margin: 100px auto;
+    /*width: 1600px;*/
+    width: 590px;
+    height: 720px;
+    overflow: hidden;
+    /*border-radius: 20px;*/
+    /*background-color: #8c939d;*/
+    transition: opacity 1.9s ease,width 1.9s;
+    opacity: 0;
+    /*transform: ;*/
+}
+
+#div_sim2 {
+    overflow: hidden;
+    text-align: center;
+    transition: height 1.5s ease;
+}
+
+#div_sim2 img {
+    width: 222px;
+    height: 333px;
+    transition: width 0.5s, height 0.7s, opacity 0.5s ease;
+}
+
+#div_simpr {
+    width: 400px;
+    height: 30px;
+    overflow: hidden;
+    margin: 0 auto;
+    transition: height 0.7s ease, background-color 0.8s ease;
+}
+
+#div_notimg:hover > img {
+    /*div_notimg鼠标悬浮时，透明化img*/
+    height: 0px;
+    opacity: 0;
+}
+
+#div_notimg:hover > #div_simpr {
+    /*div_notimg鼠标悬浮时，div_simpr的变化*/
+    height: 350px;
+    /*overflow-y: auto;*/
+    background-color: rgba(233, 240, 243, 0.45);
+}
+
+/*#div_simpr:hover{*/
+/*    margin-top: -200px;*/
+/*    height: 200px;*/
+/*    !*background-color: #f0f2f5;*!*/
+/*}*/
+#div_simpr p {
+    font-size: 22px;
+    text-indent: 1em;
+    font-family: 宋体;
+}
+
+#div_sim3 {
+    margin-top: 100px;
+    /*background-color: #8c939d;*/
+
+}
+
+#div_sim3 img {
+    width: 600px;
+    height: 250px;
+    margin-top: 25px;
+    margin-left: 50px;
+}
+
+#div_car1 {
+    border-style: solid;
+    width: 1500px;
+    height: 300px;
+    margin-left: 50px;
+    background-color: rgba(255, 255, 255, 0.68);
+    border-width: 1px;
+    /*水平布局*/
+    display: flex;
+    justify-content: flex-start;
+    /*  边框  */
+    border-radius: 15px;
+    overflow: hidden;
+    transition: width 1.5s ease;
+}
+#div_car2{
+    margin-top: 50px;
+    border-style: solid;
+    width: 1500px;
+    height: 300px;
+   float: right;
+    background-color: rgba(255, 255, 255, 0.68);
+    border-width: 1px;
+    /*水平布局*/
+    display: flex;
+    justify-content: flex-start;
+    /*  边框  */
+    border-radius: 15px;
+    overflow: hidden;
+    transition: width 1.5s ease;
+}
+#div_car3{
+    margin-top: 50px;
+    float: left;
+    border-style: solid;
+    width: 1500px;
+    height: 300px;
+    margin-left: 50px;
+    background-color: rgba(255, 255, 255, 0.68);
+    border-width: 1px;
+    /*水平布局*/
+    display: flex;
+    justify-content: flex-start;
+    /*  边框  */
+    border-radius: 15px;
+    overflow: hidden;
+    transition: width 1.5s ease,opacity 2s ease;
+}
+#txt1 {
+    width: 700px;
+    height: 260px;
+    margin: 20px auto;
+}
+
+#txt1 p {
+    line-height: 1.2;
+    font-family: 宋体;
+    text-indent: 1em;
+    font-size: 20px;
+}
+.clearfix{
+    clear: both;
+}
+#div_sim4{
+    margin-top: 100px;
+    background:  url("../img/Bigbc3.gif") no-repeat;
+    background-size: cover;
+    transition: width 1s ease-in;
+    overflow: hidden;
+}
+#div_pictureMessage{
+    margin: 50px auto;
+    width: 1400px;
+    height: 550px;
+    overflow: hidden;
+    /*background-color: rgba(191, 177, 143, 0.6);*/
+
+   background-image:   radial-gradient(circle at center, rgba(217, 206, 176, 0.6), rgba(170, 154, 119, 0.6));
+    border-style: solid;
+    border-color: peru;
+    transition: width 1.2s ease-in;
+}
+#div_pictureMessage p{
+    text-align: center;
+    font-size: 25px;
+    font-family: 隶书;
+    line-height: 1.4;
+
+}
+#div_sim5{
+    margin-top: 150px;
+    background-color: #8c939d;
+    width: 100%;
+    height: 300px;
+}
+#div_sim5 p{
+    text-align: center;
+    font-size: 29px;
+}
+/*-----弹幕样式-----*/
+#danmu{
+    float: right;
+    margin-top: 700px;
+    /* 跟随界面 */
+    position: fixed;
+
+}
+#danmu_1{
+    /*可以用动画做2D/3D变换效果*/
+    animation-name: example2;
+    /*运行时间*/
+    animation-duration: 6s;
+    /*运行次数*/
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    transition: width 1s,opacity 1s;
+    opacity: 0;
+}
+#danmu_2{
+    /*可以用动画做2D/3D变换效果*/
+    animation-name: example2;
+    /*运行时间*/
+    animation-duration: 10s;
+    /*运行次数*/
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    transition: width 1s,opacity 1s;
+    opacity: 0;
+}
+#danmu_3{
+    /*可以用动画做2D/3D变换效果*/
+    animation-name: example2;
+    /*运行时间*/
+    animation-duration: 16s;
+    /*运行次数*/
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    transition: width 1s,opacity 1s;
+    opacity: 0;
+}
+#danmu_4{
+    /*可以用动画做2D/3D变换效果*/
+    animation-name: example2;
+    /*运行时间*/
+    animation-duration: 22s;
+    /*运行次数*/
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    transition: width 1s,opacity 1s;
+    opacity: 0;
+}
+#danmu_5{
+    /*可以用动画做2D/3D变换效果*/
+    animation-name: example2;
+    /*运行时间*/
+    animation-duration: 24s;
+    /*运行次数*/
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    transition: width 1s,opacity 1s;
+    opacity: 0;
+}
+
+
+#danmu p{
+    background-color: rgba(76, 76, 71, 0.85);
+    font-size: 22px;
+    border-radius: 7px;
+}
+
+
+@keyframes example2{
+    25% {opacity: 0;}
+    26% {opacity: 1;transform: translate(10px,-0px);}
+    80% {opacity: 1;transform: translate(10px,-400px);}
+    100% {opacity: 0;transform: translate(10px,-400px);}
+}
+/*-----弹幕样式-----*/
+.container {
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    background-image: url("../img/东方开始页.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 910px; /* 容器的高度 */
+}
+
+.content button{
+    background-color: rgba(253, 253, 253, 0);
+    font-size: 35px;
+    border-style: none;
+    font-family: 仿宋;
+    transition: color 1s ease,width 1s ease,height 1s ease,font-size 0.7s ease;
+    /*animation: example 4s ease infinite;*/
+    animation-name: example;
+    /*运行时间*/
+    animation-duration: 8s;
+    /*运行次数*/
+    animation-iteration-count: infinite;
+}
+@keyframes example {
+    0%   {font-size: 42px;color: red}
+    25%  {font-size: 35px;color: yellow}
+    50%  {font-size: 42px;color: orange}
+    75%  {font-size: 35px;color: greenyellow}
+    100% {font-size: 42px;color: blue}
+}

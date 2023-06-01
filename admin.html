@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>后台管理</title>
+    </head>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <body>
+    
+        <div id="div_admin_Box">
+            <div id="div_announcement">
+                <p>公告&nbsp&nbsp&nbsp&nbsp&nbsp<button @click="backIndex">返回首页</button> </p>
+                <input id="thisTitle" v-model="titleMessage" placeholder="标题"/>
+                <textarea v-model="announcement" rows="5" placeholder="内容"></textarea>
+                 <!--   value属性会自动赋值到双向绑定             -->
+                 <!--     是否置顶公告   1置顶     0不置顶    -->
+                <input type="radio" name="1" value="1" v-model="ifTop" >置顶该公告</input>
+                <input type="radio"  name="1" value="0" v-model="ifTop"  checked="checked"/>不置顶该公告
+            <button id="up" @click="subMessage">发布</button>
+            </div>
+
+        </div>
+    </body>
+    <!-- import Vue before Element -->
+    <script src="js/vue.js"></script>
+    <script src="js/axios-0.18.0.js"></script>
+    <!-- import JavaScript -->
+    <script src="element-ui/lib/index.js"></script>
+    <script>
+        new Vue({
+            el:"#div_admin_Box",
+            data() {
+                return {
+                    titleMessage:'',
+                    announcement:"",
+                    ifTop:'0',
+                }
+            
+            },
+           
+            methods:{
+                backIndex(){
+                    window.location.href = "index.html"
+                },
+                subMessage(){
+               
+                    axios({
+                        url: `http://127.0.0.1:8081/writeAnnouncement`,
+                        method: 'post',
+                        withCredentials: true,
+                        data: {
+                            "title": this.titleMessage,
+                            "message": this.announcement,
+                            "time": "",
+                            "top": this.ifTop
+                        }
+        
+                    }).then(res => {
+    
+                
+                        if (res.data.data == "发布成功") {
+                            // this.input_login.disabled=true;
+                            this.$notify({
+                                title: '信息',
+                                message: '发布成功',
+                                type: 'success'
+                            });
+                        }else {
+                            this.$notify({
+                                title: '警告',
+                                message: '发布失败'+res.data.data,
+                                type: 'error'
+                            });
+                        }
+                    })
+                }
+            }
+            
+        })
+    </script>
+
+</html>

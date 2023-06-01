@@ -1,0 +1,278 @@
+body{
+	/*background-color: whitesmoke;*/
+	background-image: url("../img/Bigbc3.jpg");
+	background-repeat: no-repeat;
+	background-size:  100% 1000px;
+	/*背景图片固定*/
+	background-attachment: fixed;
+}
+#div_clear1{
+	/* 清除浮动 */
+	clear: both;
+}
+#div_showAnnouncementMessage{
+	height: 400px;
+	/*超过长度后显示滚动条*/
+	overflow-y: auto;
+}
+#div_showAnnouncementMessage #ItemTime{
+	font-size: 30px;
+	border-left-style: solid;
+	padding-left: 5px;
+}
+#div_showAnnouncementMessage #ItemTime span{
+	font-size: 15px;
+	border-style: none;
+}
+#div_showAnnouncementMessage #ItemMessage{
+	font-size: 20px;
+	text-indent: 2em;
+}
+#div_car{
+	/*轮播图*/
+	background-color: rgba(255, 255, 255, 0.3);
+	width: 77%;
+	margin: 20px auto ;
+	border-radius: 1%;
+}
+#div_lookLogin{
+	width: 40px;
+	height: 40px;
+	background-color: rgba(255, 255, 255, 0.9);
+	/* 跟随界面 */
+	position: fixed;
+	margin-top: 34%;
+	margin-left: 90%;
+	border-radius: 10px;
+	transition: transform 0.8s;
+	transform-origin: 30px 30px;
+}
+#div_lookLogin p{
+	text-align: center;
+	font-size: 15px;
+	opacity: 1;
+}
+#div_lookLogin:hover{
+	transform:  rotate(360deg) ;
+
+}
+#div_showAnnouncement{
+	margin-top: 5px;
+	width: 13%;
+	float: right;
+	margin-right: 15px;
+	background-color: #13ce66;
+}
+
+
+#div_image1{
+	/* 废弃的图片方案 原因是不美观 */
+	padding: 50px;
+}
+#div_selectItem{
+	/* 左边的导航栏 */
+	border-radius: 5%;
+	margin-top: 100px;
+	width: 270px;
+	height: 400px;
+	background-color: rgba(255, 255, 255, 0.9);
+	float: left;
+	margin-left: 30px;
+	/* 跟随界面 */
+	position: fixed;
+
+}
+#div_selectItem a{
+	text-decoration: none;
+	color: black;
+}
+#div_selectItem li{
+	line-height: 50px;
+	margin-left: 10px;
+	padding-left: 50px;
+	/*过渡动画*/
+	transition: background-color 0.5s;
+
+	
+}
+#div_selectItem li:hover{
+	background-color: pink;
+	font-size: 25px;
+}
+#div_top{
+	/* 顶部导航栏 */
+	background-color: azure;
+	width: 100%;
+	height: 50px;
+	background-color: rgba(255, 255, 255, 0);
+	position: fixed;
+	margin-top: -105px;
+	padding-bottom: 20px;
+	
+	
+}
+#div_top ul{
+	list-style: none;		
+}
+#div_top li{	
+	/* 导航栏横向排布 */
+	float: left;
+	width: 25%;
+	height: 55px;
+	line-height: 50px;
+	text-align: center;
+
+}
+#div_top a{
+	text-decoration: none;		
+}
+#div_top li:hover{
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+#div_Big{
+	/* 中间的大布局 */
+	border-style: solid solid solid solid;
+	width: 65%;
+	height: 2790px;
+	margin-top: 100px;
+	margin-left: 20%;
+	border-radius: 10px;
+	overflow-y: auto;
+	/* opacity: 0.2;这个会影响子类布局 */
+	background-color: rgba(255, 255, 255, 0.85);
+}
+#div_Big #a1{
+	/* 大的分割标题 */
+	margin-top: 60px;
+	margin-left: 30px;
+	font-size: 37px;
+	line-height: 40px;
+	color: black;
+	border-style: none none solid none;
+	border-color: pink
+	}
+#div_Big #a2{
+	/* 大的分割标题 */
+		margin-top: 60px;
+		margin-left: 30px;
+		font-size: 25px;
+		line-height: 30px;
+		color: black;
+		border-style: none none solid none;
+		border-color: pink
+	}
+#div_Big p{
+	text-align: left;
+
+	font-size: 24px;
+	line-height: 25px;
+	/*缩进*/
+	text-indent: 2em;
+	font-family: 华文楷体;
+}
+#div_content1{
+	height: 300px;
+}
+/* #div_content1 p{
+	margin-left: 25px;
+	font-size: 15px;
+	line-height: 15px;
+	float: left;
+	text-align: justify;
+	padding-right: 100px;
+} */
+table{
+	/* 中间的表格，去除了边框 */
+	float: left;
+	padding-right: 100px;
+	padding-left: 80px;
+}
+#div_content1 image{
+	/* 表格旁边的图片 */
+	display: block;
+}
+#div_content2 ul{
+	list-style-type: none;
+}
+#div_content2 li{
+	line-height: 35px;
+	font-size: 20px;
+}
+#div_content2 li:hover{
+	background-color: rgba(255, 255, 255, 0.3);
+}
+#div_video{
+	background-image: url(../img/东方.png);
+	background-size: 100% 100%;
+
+	filter: blur(0px);
+	width: 100%;
+	height: 600px;
+}
+#div_video video{
+	margin-top: 37px;
+	margin-left: 17%;
+	width: 60%;
+	height: 80%;
+	border-radius: 5%;
+}
+#div_Big #div_video p{
+	text-indent: 0em;
+	float: left;
+	width: 2px;
+	font-size: 55px;
+	margin-left: 50px;
+	margin-top: 100px;
+	line-height: 50px;
+	font-family: "楷体";
+	color: black;
+}
+#div_writemessage{
+	width: 65%;
+	margin-top: 20px;
+	margin-left: 20%;
+	background-color: rgba(255, 255, 255, 0.9);
+	border-radius: 10px;
+
+	padding-top: 30px;
+	height: 200px;
+}
+#div_message{
+	border-radius: 10px;
+	/* 评论区域的样式 */
+	width: 65%;
+	margin-top: 20px;
+	margin-left: 20%;
+	padding-top: 30px;
+	height: 150px;
+}
+#div_message img{
+	border-radius: 50%;
+	border-style: solid;
+	transition: transform 0.9s;
+}
+/*!*#div_message #like* 这里写点赞的/*/
+
+#div_message img:hover,#div_writemessage img:hover{
+/*	鼠标放图片上时，旋转*/
+	transform:  rotate(360deg) ;
+}
+
+/*#div_message th{*/
+/*	!*border-style: none none solid none;*!*/
+/*	!*border-color: #8c939d;*!*/
+/*	text-align: right;*/
+/*	margin-top: 40px;*/
+/*	font-size: 15px;*/
+/*}*/
+#div_message table{
+	background-color: rgba(255, 255, 255, 0.3);
+	padding-top: 50px;
+}
+#div_end{
+	width: 65%;
+	height: 100px;
+	margin-left: 20%;
+	background-color: rgba(158, 166, 175, 0.95);
+}
